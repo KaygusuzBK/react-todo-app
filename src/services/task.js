@@ -11,4 +11,8 @@ const getTaskId = (id) => {
   return axios.get(`${API}${path}/${id}`);
 };
 
-export { getTasks, getTaskId };
+const pushTask = (task) => {
+  return axios.post(`${API}${path}`, task);
+};
+
+export { getTasks, getTaskId, pushTask };

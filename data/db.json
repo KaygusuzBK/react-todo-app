@@ -1,25 +1,60 @@
 {
-    "tasks": [
-        {
-            "id": 1,
-            "title": "Buy Groceries",
-            "description": "Buy milk, eggs, and bread.",
-            "dueDate": "2023-08-15",
-            "status": "incomplete"
-        },
-        {
-            "id": 2,
-            "title": "Finish Homework",
-            "description": "Complete math exercises and write an essay.",
-            "dueDate": "2023-08-20",
-            "status": "completed"
-        },
-        {
-            "id": 3,
-            "title": "Read Book",
-            "description": "Read the new fantasy novel.",
-            "dueDate": null,
-            "status": "incomplete"
-        }
-    ]
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Buy Groceries",
+      "description": "Buy milk, eggs, and bread.",
+      "dueDate": "2023-08-15",
+      "status": false
+    },
+    {
+      "id": 2,
+      "title": "Finish Homework",
+      "description": "Complete math exercises and write an essay.",
+      "dueDate": "2023-08-20",
+      "status": false
+    },
+    {
+      "id": 3,
+      "title": "Read Book",
+      "description": "Read the new fantasy novel.",
+      "dueDate": "2023-08-19",
+      "status": false
+    },
+    {
+      "id": 4,
+      "title": "Go to the Gym",
+      "description": "Do some cardio and lift weights.",
+      "dueDate": "2023-08-15",
+      "status": false
+    },
+    {
+      "id": 5,
+      "title": "alşsdlasşdk",
+      "description": "asşdlsaşdk",
+      "status": false,
+      "due_date": "23.1231lş23ş12"
+    },
+    {
+      "id": 10,
+      "title": "",
+      "description": "",
+      "status": false,
+      "due_date": ""
+    },
+    {
+      "id": 11,
+      "title": "test Title",
+      "description": "test description",
+      "status": false,
+      "due_date": "2023-08-19"
+    },
+    {
+      "id": 12,
+      "title": "test2",
+      "description": "test",
+      "status": false,
+      "due_date": "2024-01-23"
+    }
+  ]
 }
