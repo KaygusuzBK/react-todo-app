@@ -7,9 +7,8 @@ function Input({ placeholder, type, onChange, value }) {
           placeholder={placeholder}
           type={type}
           onChange={onChange}
-        >
-          {value}
-        </input>
+          value={value}
+        />
       </div>
     </>
   );

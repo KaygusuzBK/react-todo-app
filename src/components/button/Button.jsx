@@ -1,8 +1,19 @@
-function Button({ text , href}) {
+import { createElement } from "react";
+import propTypes from "prop-types";
+function Button({ text, as }) {
+  createElement(as, {
+    className: "rounded h-10",
+    children: text,
+  });
   return (
-    <div>
-      <button className="rounded h-10">{text}</button>
-    </div>
+    <>
+      <button
+        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+        as={"button"}
+      >
+        Add Task
+      </button>
+    </>
   );
 }
 

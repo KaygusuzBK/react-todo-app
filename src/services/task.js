@@ -1,4 +1,5 @@
 import axios from "axios";
+import memo from "react"
 
 const API = "http://localhost:3000";
 const path = "/tasks";
@@ -15,4 +16,12 @@ const pushTask = (task) => {
   return axios.post(`${API}${path}`, task);
 };
 
-export { getTasks, getTaskId, pushTask };
+const updateTask = (id, task) => {
+  return axios.put(`${API}${path}/${id}`, task);
+};
+
+const deleteTask = (id) => {
+  return axios.delete(`${API}${path}/${id}`);
+};
+
+export { getTasks, getTaskId, pushTask, updateTask, deleteTask };
