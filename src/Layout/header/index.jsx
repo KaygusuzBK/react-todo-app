@@ -1,4 +1,5 @@
 import Logo from "./logo/logo";
+import Button from "../../components/button/Button";
 
 function Header() {
   return (
@@ -10,7 +11,7 @@ function Header() {
             <Logo id="logo" />
           </div>
           <a
-            className="p-2 m-3 rounded-lg bg-rose-800 text-white hover:bg-cyan-400 hover:text-black hover:border-gray-950 border-2 border-gray-800"
+            className="p-2 m-3 rounded-lg bg-rose-800 text-white hover:bg-rose-500 hover:text-white border-2 border-gray-800"
             href="/add-task"
           >
             Add Task

@@ -1,14 +1,16 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { pushTask } from "../../services//task.js";
 import Input from "../../components/input/input.jsx";
 import Button from "../../components/button/button.jsx";
+import { memo } from "react";
 
 function AddTask() {
   const [task, setTask] = useState({
     title: "",
     description: "",
     dueDate: "",
+    status: false,
   });
 
   return (
@@ -45,4 +47,4 @@ function AddTask() {
     </>
   );
 }
-export default AddTask;
+export default memo(AddTask);
