@@ -1,22 +1,23 @@
 import Logo from "./logo/logo";
+import Button from "../../components/button/Button";
 
 function Header() {
   return (
     <>
-      <div className="h-14 border-b border-zinc-300 flex">
-        {/* <Logo /> */}
-        <a href="/" className="flex items-center">
-          Tasklar{" "}
-        </a>
-        <img
-          src="https://fastly.picsum.photos/id/717/55/35.jpg?hmac=Z8TM8FWj_tBCL5O-MzUyDqaMyhiWDbROYFOk9Go37OM"
-          alt="add"
-          className="w-5 h-5 mx-2"
-        />
-        <a href="/add-task" className="flex items-center">
-          Task Ekle
-        </a>
-      </div>
+      <header className="h-18 border-b shadow-xl bg-cyan-800  ">
+        <div className="flex items-center justify-between ">
+          <div className="flex justify-between">
+            <label className="text-white text-2xl p-2">Todo App</label>
+            <Logo id="logo" />
+          </div>
+          <a
+            className="p-2 m-3 rounded-lg bg-rose-800 text-white hover:bg-rose-500 hover:text-white border-2 border-gray-800"
+            href="/add-task"
+          >
+          TASK EKLE 
+          </a>
+        </div>
+      </header>
     </>
   );
 }
