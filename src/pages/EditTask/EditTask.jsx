@@ -1,8 +1,8 @@
-function EditTask() {
+function EditTask(id) {
   return (
-    <div>
-      <h1>Edit Task</h1>
-    </div>
+    <>
+      <h1>{id}</h1>
+    </>
   );
 }
 

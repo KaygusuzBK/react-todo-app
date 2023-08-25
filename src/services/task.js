@@ -1,5 +1,5 @@
 import axios from "axios";
-import memo from "react"
+import memo from "react";
 
 const API = "http://localhost:3000";
 const path = "/tasks";
@@ -20,8 +20,8 @@ const updateTask = (id, task) => {
   return axios.put(`${API}${path}/${id}`, task);
 };
 
-const deleteTask = (id) => {
+const deleteTaskId = (id) => {
   return axios.delete(`${API}${path}/${id}`);
 };
 
-export { getTasks, getTaskId, pushTask, updateTask, deleteTask };
+export { getTasks, getTaskId, pushTask, updateTask, deleteTaskId };
