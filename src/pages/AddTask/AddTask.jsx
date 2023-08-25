@@ -30,6 +30,7 @@ function AddTask() {
           ></Input>
           <h1 className="text-xl font-bold">Date:</h1>
           <Input
+            data-date-format="DD MMMM YYYY"
             type="date"
             id="dueDate"
             onChange={(e) => setTask({ ...task, dueDate: e.target.value })}
@@ -39,9 +40,13 @@ function AddTask() {
 
       <div className="flex justify-center">
         <Button
+          className="bg-green-500 text-white p-2 m-2"
           text="Add Task"
           as="button"
-          onClick={(() => console.log(task), pushTask(task))}
+          onClick={() => {
+            console.log(task);
+            pushTask(task);
+          }}
         ></Button>
       </div>
     </>

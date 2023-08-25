@@ -1,17 +1,14 @@
 import { createElement } from "react";
 import propTypes from "prop-types";
-function Button({ text, as }) {
-  createElement(as, {
-    className: "rounded h-10",
-    children: text,
-  });
+function Button({ text, className, onClick }) {
   return (
     <>
       <button
-        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
         as={"button"}
+        className={`rounded h-10 ${className}`}
+        onClick={onClick}
       >
-        Add Task
+        {text}
       </button>
     </>
   );

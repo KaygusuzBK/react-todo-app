@@ -14,7 +14,7 @@ function Header() {
             className="p-2 m-3 rounded-lg bg-rose-800 text-white hover:bg-rose-500 hover:text-white border-2 border-gray-800"
             href="/add-task"
           >
-            Add Task
+          TASK EKLE 
           </a>
         </div>
       </header>

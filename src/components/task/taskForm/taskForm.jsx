@@ -1,33 +1,41 @@
+import { getTasks, getTaskId } from "../../../services/task.js";
+import { useState, useEffect } from "react";
+import Button from "../../button/button.jsx";
+
 function TaskForm(task) {
   return (
-    <form className="flex flex-column align-center justify-center border">
-      <ul className="flex rounded-xl bg-gray-200 border border-black p-4 m-4">
-        <li className="flex p-2">
-          <label htmlFor="status">Status</label>
-          <input type="checkbox" />
-        </li>
-        <li className="flex p-2">
-          <label htmlFor="title">Title: </label>
-          <h2 name="title">task.title</h2>
-        </li>
-        <li className="flex p-2">
-          <label htmlFor="description">Description</label>
-          <h2 id="description" name="description">
-            task.description
-          </h2>
-        </li>
-        <li className="flex p-2">
-          <label htmlFor="dueDate">Due Date</label>
-          <input type="date" id="dueDate" name="dueDate" value={"23.02.2024"} />
-        </li>
-        <div className="flex">
-          <button className="px-4" type="submit">
-            Edit
-          </button>
-          <button className="px-2">sil</button>
-        </div>
-      </ul>
-    </form>
+    <>
+      <form onSubmit={getTasks} className="flex flex-column justify-center items-center m-2">
+        <ul className="flex flex-column p-4 justify-center items-center shadow-lg bg-red-500 rounded-xl">
+          <li className="">
+            <input type="checkbox" />
+          </li>
+          <li className="p-2">
+            <label htmlFor="title">Title: </label>
+            <p name="title">{getTasks.title}</p>
+          </li>
+          <li className="p-2">
+            <label htmlFor="description">Description</label>
+            <p id="description" name="description">
+              {getTasks.description}
+            </p>
+          </li>
+          <li className="p-2">
+            <label htmlFor="dueDate">Due Date</label>
+            <input
+              type="date"
+              id="dueDate"
+              name="dueDate"
+              value={getTasks.dueDate}
+            />
+          </li >
+          <div className="flex">
+            <Button type="submit" className="bg-red-600 text-white m-2 p-2" text="Düzenle" />
+            <Button type="submit" text="Sil" className="bg-green-700 m-2 p-2 text-white" />
+          </div>
+        </ul>
+      </form>
+    </>
   );
 }
 
