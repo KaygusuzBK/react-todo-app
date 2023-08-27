@@ -61,10 +61,12 @@ function TaskForm({ task }) {
             />
           </li>
           <div className="flex">
-            <Button
+            <a
               className="bg-red-600 text-white m-2 p-2 rounded-xl hover:bg-red-900"
               text="Düzenle"
-            />
+              href={`/task-edit/${task.id}`}
+              >Düzenle</a>
+            
             <Button
               className="bg-green-700 m-2 p-2 text-white rounded-xl hover:bg-green-900"
               text="Sil"
