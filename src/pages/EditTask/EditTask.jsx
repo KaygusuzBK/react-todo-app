@@ -8,7 +8,6 @@ import Button from "../../components/button/button";
 function EditTask() {
   let { id } = useParams();
 
-
   React.useEffect(() => {
     getTaskId(id).then(({ data }) => setTask(data));
   }, [id]);
