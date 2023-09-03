@@ -16,16 +16,17 @@ function Tasks() {
       <div>
         <h1
           className={classNames(
-            "text-3xl",
+            "text-5xl",
             "text-center",
             "font-bold",
-            "text-red-800",
-            "p-4"
+            "text-red-900",
+            "p-3",
+            "m-3"
           )}
         >
           Tasklar
         </h1>
-        <ul className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:gird-cols-3 gap-4">
+        <ul className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gird-cols-7 gap-3 absolute w-full h-full ">
           {tasks.map((task) => (
             <li key={task.id}>
               <TaskForm task={task} />

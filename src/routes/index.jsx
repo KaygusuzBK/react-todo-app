@@ -20,13 +20,8 @@ const routes = createBrowserRouter([
         element: <AddTask />,
       },
       {
-        path: "/task-edit",
-        children: [
-          {
-            path: ":id",
-            element: <EditTask />,
-          },
-        ],
+        path: "/task-edit/:id",
+        element: <EditTask />,
       },
       {
         path: "*",

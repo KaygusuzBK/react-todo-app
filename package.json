@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "server": "json-server --watch ./data/db.json",
-    "tailwind": "npx tailwindcss -i ./src/assets/css/main.css -o ./dist/output.css --watch"
+    "tailwind": "npx tailwindcss -i ./src/assets/css/main.css -o ./src/assets/css/output.css --watch"
   },
   "dependencies": {
     "autoprefixer": "^10.4.15",

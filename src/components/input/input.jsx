@@ -1,14 +1,16 @@
-function Input({ placeholder, type, onChange, value, required }) {
+
+
+function Input({ placeholder, type, onChange, value }) {
   return (
     <>
-      <div className="flex justify-end">
+      <div>
         <input
-          required={required}
           className="border rounded shadow-md"
           placeholder={placeholder}
           type={type}
           onChange={onChange}
           value={value}
+          
         />
       </div>
     </>

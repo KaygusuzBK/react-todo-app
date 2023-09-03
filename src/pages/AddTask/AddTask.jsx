@@ -15,12 +15,13 @@ function AddTask() {
 
   return (
     <>
-      <div className="flex p-3 justify-center text-center">
+      <div className="flex p-3 justify-center text-center m-4">
         <div className="grid gap-2 grid-cols-2">
           <h1 className="text-xl font-bold ">Add Task:</h1>
           <Input
             placeholder="Title"
             onChange={(e) => setTask({ ...task, title: e.target.value })}
+            required
           ></Input>
           <h1 className="text-xl font-bold ">Description:</h1>
           <Input
@@ -40,7 +41,7 @@ function AddTask() {
 
       <div className="flex justify-center">
         <Button
-          className="bg-green-500 text-white p-2 m-2"
+          className="bg-green-500 text-white p-2 m-2 hover:bg-green-700 rounded-lg"
           text="Add Task"
           as="button"
           onClick={() => {
