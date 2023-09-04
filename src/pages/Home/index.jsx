@@ -14,25 +14,13 @@ function Tasks() {
   return (
     <>
       <div>
-        <h1
-          className={classNames(
-            "text-5xl",
-            "text-center",
-            "font-bold",
-            "text-red-900",
-            "p-3",
-            "m-3"
-          )}
-        >
-          Tasklar
-        </h1>
-        <ul className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gird-cols-7 gap-3 absolute w-full h-full ">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gird-cols-7 gap-3 absolute w-full h-full p-4">
           {tasks.map((task) => (
-            <li key={task.id}>
+            <div key={task.id}>
               <TaskForm task={task} />
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </>
   );

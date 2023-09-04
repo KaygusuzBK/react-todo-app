@@ -1,5 +1,3 @@
-
-
 function Input({ placeholder, type, onChange, value }) {
   return (
     <>
@@ -10,7 +8,6 @@ function Input({ placeholder, type, onChange, value }) {
           type={type}
           onChange={onChange}
           value={value}
-          
         />
       </div>
     </>
