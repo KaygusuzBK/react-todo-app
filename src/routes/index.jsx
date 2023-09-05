@@ -4,7 +4,6 @@ import AddTask from "../pages/AddTask/AddTask.jsx";
 import EditTask from "../pages/EditTask/EditTask.jsx";
 import Layout from "../Layout/index.jsx";
 import "../assets/css/main.css";
-import TaskDetail from "../pages/TaskDetail/TaskDetail.jsx";
 
 // layout kullanmamızın sebebi içerisindeki componentler değişirken diğer componentler değişmeyecektir.
 const routes = createBrowserRouter([
@@ -17,15 +16,11 @@ const routes = createBrowserRouter([
         element: <Tasks />,
       },
       {
-        path: "/task/:id",
-        element: <TaskDetail />,
-      },
-      {
-        path: "/add-task",
+        path: "/task-add",
         element: <AddTask />,
       },
       {
-        path: "task-edit/:id",
+        path: "/task-edit/:id",
         element: <EditTask />,
       },
       {
