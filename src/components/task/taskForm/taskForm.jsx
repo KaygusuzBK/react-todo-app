@@ -8,6 +8,7 @@ function deleteTask(id) {
 }
 
 function TaskForm({ task }) {
+
   return (
     <>
       <div className="flex flex-column justify-center items-center m-3">
@@ -17,6 +18,7 @@ function TaskForm({ task }) {
             <label className="font-semibold text-white font-mono text-xl  p-2">
               Title
             </label>
+            <input type="checkbox" className="h-4 w-4" onClick={() => task.status = !task.status}/>
             <p
               name="title"
               className="bg-gray-200 p-2 rounded-2xl text-center m-1 font-semibold w-64 overflow-auto"

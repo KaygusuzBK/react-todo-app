@@ -1,5 +1,4 @@
 import axios from "axios";
-import memo from "react";
 
 const API = "http://localhost:3000";
 const path = "/tasks";

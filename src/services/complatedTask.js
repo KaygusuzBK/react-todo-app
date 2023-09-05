@@ -1,27 +1,32 @@
 import axios from "axios";
-import memo from "react";
 
 const API = "http://localhost:3000";
-const path = "/tasks";
+const path = "/complatedTasks";
 
-const getTasks = () => {
+const getCompletedTasks = () => {
   return axios.get(`${API}${path}`);
 };
 
-const getTaskId = (id) => {
+const getCompletedTaskId = (id) => {
   return axios.get(`${API}${path}/${id}`);
 };
 
-const pushTask = (task) => {
+const pushCompletedTask = (task) => {
   return axios.post(`${API}${path}`, task);
 };
 
-const updateTask = (id, task) => {
+const updateCompletedTask = (id, task) => {
   return axios.put(`${API}${path}/${id}`, task);
 };
 
-const deleteTaskId = (id) => {
+const deleteCompletedTaskId = (id) => {
   return axios.delete(`${API}${path}/${id}`);
 };
 
-export { getTasks, getTaskId, pushTask, updateTask, deleteTaskId };
+export {
+  getCompletedTasks,
+  getCompletedTaskId,
+  pushCompletedTask,
+  updateCompletedTask,
+  deleteCompletedTaskId,
+};
