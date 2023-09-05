@@ -9,7 +9,7 @@ function Tasks() {
 
   React.useEffect(() => {
     getTasks().then(({ data }) => setTasks(data));
-  }, [getTasks]);
+  }, []);
 
   return (
     <>

@@ -16,7 +16,7 @@ const routes = createBrowserRouter([
         element: <Tasks />,
       },
       {
-        path: "/add-task",
+        path: "/task-add",
         element: <AddTask />,
       },
       {

@@ -16,12 +16,12 @@ function EditTask() {
   return (
     <>
       <div className="text-center ">
-        <h1 className="text-3xl  p-2 border">SA AS</h1>
+        <h1 className="text-3xl  p-2 border">Task Edit</h1>
         <div className="p-2">
           <label>TİTLE</label>
           <Input
             className="rounded-lg shadow-lg"
-            placeholder={task.title}
+            value={task.title}
             onChange={(e) => setTask({ ...task, title: e.target.value })}
           />
         </div>
@@ -29,7 +29,7 @@ function EditTask() {
           <label>Description</label>
           <Input
             className="rounded-lg shadow-lg"
-            placeholder={task.description}
+            value={task.description}
             onChange={(e) => setTask({ ...task, description: e.target.value })}
           />
         </div>
@@ -44,7 +44,7 @@ function EditTask() {
         </div>
         <div className="p-2">
           <Button
-            className="bg-rose-600 hover:bg-green-500 text-white font-bold py-2 px-6 "
+            className="bg-green -600 hover:bg-green-500 text-white font-bold py-2 px-6 "
             text={"GÜNCELLE"}
             onClick={() => {
               updateTask(id, task);

@@ -8,13 +8,6 @@ function deleteTask(id) {
 }
 
 function TaskForm({ task }) {
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    getTasks().then(({ data }) => setTasks(data));
-  }, [getTasks]);
-  
-
   return (
     <>
       <div className="flex flex-column justify-center items-center m-3">
@@ -61,7 +54,7 @@ function TaskForm({ task }) {
           {/* BUTTONS */}
           <div className="flex items-center justify-between">
             <a
-              className="bg-green-600 text-white m-2 p-3 rounded-xl hover:bg-green-900"
+              className="bg-yellow-500 text-white m-2 p-3 rounded-xl hover:bg-yellow-600"
               text="Düzenle"
               href={`/task-edit/${task.id}`}
             >
