@@ -3,6 +3,7 @@ import { Link, useHref, useParams } from "react-router-dom";
 import Input from "../../components/input/input";
 import Button from "../../components/button/button";
 import { useState, useEffect } from "react";
+import Modal from "../../components/modal/Modal";
 
 function EditTask() {
   let { id } = useParams();
@@ -43,13 +44,14 @@ function EditTask() {
           />
         </div>
         <div className="p-2">
-          <Button
-            className="bg-green -600 hover:bg-green-500 text-white font-bold py-2 px-6 "
-            text={"GÜNCELLE"}
+          <Modal
+            id={id}
+            modalsorusu={"Günceleme işlemini onaylıyor musunuz?"}
+            className="bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-6 "
+            Text={"Update"}
             onClick={() => {
               updateTask(id, task);
             }}
-            Link={"/"}
           />
         </div>
       </div>

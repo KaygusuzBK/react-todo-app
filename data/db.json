@@ -1,25 +1,11 @@
 {
   "tasks": [
     {
-      "title": "selam kocacım",
-      "description": "selam kocacım",
-      "dueDate": "1111-11-11",
-      "status": false,
-      "id": 8
-    },
-    {
       "title": "test1",
       "description": "test1",
       "dueDate": "0222-02-23",
       "status": false,
       "id": 13
-    },
-    {
-      "title": "aaaaaaaaa",
-      "description": "asdasd",
-      "dueDate": "1111-11-11",
-      "status": false,
-      "id": 14
     },
     {
       "title": "test1",
@@ -27,15 +13,41 @@
       "dueDate": "0222-02-23",
       "status": false,
       "id": 15
-    }
-  ],
-  "complatedTasks": [
+    },
+    {
+      "title": "test1",
+      "description": "test1",
+      "dueDate": "2222-02-23",
+      "status": true,
+      "id": 16
+    },
     {
       "title": "test2",
       "description": "test2",
-      "dueDate": "2222-02-23",
+      "dueDate": "0999-09-09",
       "status": true,
-      "id": 13
+      "id": 17
+    },
+    {
+      "title": "test3",
+      "description": "test3",
+      "dueDate": "1111-11-11",
+      "status": true,
+      "id": 18
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "dueDate": "3333-03-31",
+      "status": true,
+      "id": 19
+    },
+    {
+      "title": "aaaaaa",
+      "description": "bbbbbbbb",
+      "dueDate": "1111-11-11",
+      "status": false,
+      "id": 20
     }
   ]
 }

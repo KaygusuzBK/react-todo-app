@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API = "http://localhost:3000";
 const path = "/tasks";
+const pathCompleted = "/complatedTasks";
 
 const getTasks = () => {
   return axios.get(`${API}${path}`);
@@ -21,6 +22,10 @@ const updateTask = (id, task) => {
 
 const deleteTaskId = (id) => {
   return axios.delete(`${API}${path}/${id}`);
+};
+
+const sendCompletedTask = (task) => {
+  pushTask(task);
 };
 
 export { getTasks, getTaskId, pushTask, updateTask, deleteTaskId };

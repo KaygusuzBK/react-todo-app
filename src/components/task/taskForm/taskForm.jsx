@@ -2,73 +2,39 @@ import { getTasks, getTaskId, deleteTaskId } from "../../../services/task.js";
 import { useState, useEffect } from "react";
 import Button from "../../button/button.jsx";
 import { Link, NavLink } from "react-router-dom";
+import Checkbox from "../../checkbox/CheckBox..jsx";
+import classNames from "classnames";
 
 function deleteTask(id) {
   deleteTaskId(id);
 }
 
-function TaskForm({ task }) {
-
+function TaskForm({ task, className }) {
   return (
     <>
-      <div className="flex flex-column justify-center items-center m-3">
-        {/* DIŞ ÇEVRE */}
-        <div className=" p-3 rounded-xl bg-gradient-to-b from-cyan-600 to-blue-500">
-          <div className="p-2 text-start max-w-md">
-            <label className="font-semibold text-white font-mono text-xl  p-2">
-              Title
-            </label>
-            <input type="checkbox" className="h-4 w-4" onClick={() => task.status = !task.status}/>
-            <p
-              name="title"
-              className="bg-gray-200 p-2 rounded-2xl text-center m-1 font-semibold w-64 overflow-auto"
-            >
-              {task.title}
-            </p>
-          </div>
-          {/* DESCRIPTION */}
-          <div className="p-2 text-start max-w-xl">
-            <label className="font-semibold text-white font-mono text-xl p-2">
-              Description
-            </label>
-            <p
-              id="description"
-              name="description"
-              className="bg-gray-200 p-2 rounded-2xl text-center m-1 font-semibold w-64 h-32 max-h-24 max-w-100 overflow-auto"
-            >
-              {task.description}
-            </p>
-          </div>
-          {/* DATE */}
-          <div className="flex items-center justify-center">
-            <label className="font-semibold text-white font-mono p-2 text-lg">
-              Due Date:
-            </label>
-            <input
-              className="bg-gray-200 p-2 rounded-xl text-center m-2 font-semibold text-base text-black"
-              type="date"
-              id="dueDate"
-              name="dueDate"
-              value={task.dueDate}
-              format="dd/MM/yyyy"
-            />
-          </div>
-          {/* BUTTONS */}
-          <div className="flex items-center justify-between">
+      <div className="items-center justify-center flex flex-col text-center">
+        <div className="flex justify-between items-center p-3 w-4/5 border shadow-md h-20 m-1 mix-blend-multiply bg-gray-200 hover:bg-gray-300">
+          <Checkbox task={task} className="w-1/3 h-5" />
+          <div className="w-1/3 text-lg">{task.title}</div>
+          <div className="w-1/3 text-lg">{task.description}</div>
+          <div className="w-1/3 text-lg">{task.dueDate}</div>
+          <div className="w-1/3">
             <a
-              className="bg-yellow-500 text-white m-2 p-3 rounded-xl hover:bg-yellow-600"
+              className={classNames(
+                "bg-green-600 text-white rounded-xl hover:bg-green-700 px-4 py-2"
+              )}
               text="Düzenle"
               href={`/task-edit/${task.id}`}
             >
               Düzenle
             </a>
-
             <Button
-              className="bg-red-700 text-white px-4 py-2 m-2 rounded-xl hover:bg-red-900 "
+              className="bg-red-700 text-white rounded-xl hover:bg-red-900 ml-2 px-4"
               text="Sil"
               onClick={() => deleteTask(task.id)}
             />
           </div>
+          <hr />
         </div>
       </div>
     </>
