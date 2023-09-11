@@ -19,11 +19,12 @@ function Header() {
 
           <div className="flex w-64 justify-center items-center">
             <a
-              className="bg-red-700 text-white p-2 m-4 rounded-lg hover:bg-red-700 hover:text-white border-2 border-gray-900"
+              className="bg-red-700 text-white p-2 m-4 rounded-lg hover:bg-red-800 hover:text-white border-2 border-gray-900"
               href={"/completed-tasks"}
             >
-              Completed
+              Tamamlananlar
             </a>
+            <button className="px-2 py-3border bg-blue-900">Dil</button>
           </div>
         </div>
       </header>

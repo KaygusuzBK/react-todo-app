@@ -1,10 +1,7 @@
 import { useState } from "react";
-import Button from "../button/button";
 import { updateTask } from "../../services/task";
 
-function Modal({ modalsorusu, Text, id }) {
-  const [task, setTask] = useState({});
-
+function Modal({ modalsorusu, Text, id, task, fonksiyon, className }) {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -13,24 +10,22 @@ function Modal({ modalsorusu, Text, id }) {
 
   return (
     <>
-      <button
-        onClick={toggleModal}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-      >
+      <button onClick={toggleModal} className={className}>
         {Text}
       </button>
       {modal && (
         <div className="modal">
           <div className="h-full w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-60">
-            <div className="bg-slate-100 rounded shadow-xl rounded-3xl w-1/2">
-              <div className=" h-20 h-full border border-black m-3 flex justify-center items-center rounded-xl">
-                <h1 className="">{modalsorusu}</h1>
+            <div className="bg-slate-100 shadow-xl rounded-3xl w-1/2">
+              <div className="h-full border border-black m-3 p-2 flex items-center justify-center rounded-xl bg-slate-7 00 text-white">
+                <h1 className="h-24">{modalsorusu}</h1>
               </div>
-              <div className="border border-black rounded-3xl m-3 p-4">
+              <div className="border border-transparent rounded-3xl m-3 p-4">
                 <button
                   className="bg-blue-500 text-white rounded-lg p-2 m-2 w-16"
                   onClick={() => {
-                    updateTask(id, task);
+                    fonksiyon(id, task);
+                    toggleModal();
                   }}
                 >
                   Evet

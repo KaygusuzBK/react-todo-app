@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { getTasks } from "../../services//task.js";
 import TaskForm from "../../components/task/taskForm/taskForm.jsx";
+import { useTranslation } from "react-i18next";
+import i18next from "../../language/1i8.js";
 
 function Tasks() {
-  const [tasks, setTasks] = useState([]);
+  const { t, i18n } = useTranslation();
 
-  const nowDate = new Date().toISOString().slice(0, 10);
-  console.log(nowDate);
+  const [tasks, setTasks] = useState([]);
+  
   useEffect(() => {
     getTasks().then(({ data }) => {
       const tasks = data.filter((task) => task.status === false);
@@ -16,21 +18,21 @@ function Tasks() {
 
   return (
     <>
-        <div className="items-center justify-center flex flex-col text-center h-32">
-          <div className="flex justify-between items-center p-3 w-4/5 border shadow-md h-14 m-1 mix-blend-multiply bg-gray-400 hover:bg">
-            <div className="w-1/3 text-lg font-bold">Durum</div>
-            <div className="w-1/3 text-lg font-bold">Başlık</div>
-            <div className="w-1/3 text-lg font-bold">Açıklama</div>
-            <div className="w-1/3 text-lg font-bold">Bitiş Tarihi</div>
-            <div className="w-1/4 text-lg font-bold">İşlemler</div>
-            <hr />
-          </div>
+      <div className="items-center justify-center flex flex-col text-center h-32">
+        <div className="flex justify-between items-center w-4/5 border shadow-md h-14 m-1  bg-gray-400 hover:bg">
+          <div className="w-1/3 text-lg font-bold">Durum</div>
+          <div className="w-1/3 text-lg font-bold">Başlık</div>
+          <div className="w-1/3 text-lg font-bold">Açıklama</div>
+          <div className="w-1/3 text-lg font-bold">Bitiş Tarihi</div>
+          <div className="w-1/3 text-lg font-bold">İşlemler</div>
+          <hr />
         </div>
-        {tasks.map((task) => (
-          <div key={task.id}>
-            <TaskForm task={task} />
-          </div>
-        ))}
+      </div>
+      {tasks.map((task) => (
+        <div key={task.id}>
+          <TaskForm task={task} />
+        </div>
+      ))}
     </>
   );
 }

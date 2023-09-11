@@ -1,9 +1,8 @@
-import { getTasks, getTaskId, deleteTaskId } from "../../../services/task.js";
-import { useState, useEffect } from "react";
+import { deleteTaskId } from "../../../services/task.js";
 import Button from "../../button/button.jsx";
-import { Link, NavLink } from "react-router-dom";
 import Checkbox from "../../checkbox/CheckBox..jsx";
 import classNames from "classnames";
+import Modal from "../../modal/Modal.jsx";
 
 function deleteTask(id) {
   deleteTaskId(id);
@@ -28,10 +27,13 @@ function TaskForm({ task, className }) {
             >
               Düzenle
             </a>
-            <Button
-              className="bg-red-700 text-white rounded-xl hover:bg-red-900 ml-2 px-4"
-              text="Sil"
-              onClick={() => deleteTask(task.id)}
+            <Modal
+              className="bg-red-700 text-white rounded-xl hover:bg-red-900 ml-2 px-4 py-2"
+              modalsorusu="Silmek istediğinize emin misiniz?"
+              Text="Sil"
+              id={task.id}
+              task={task}
+              fonksiyon={deleteTask}
             />
           </div>
           <hr />

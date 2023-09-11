@@ -2,7 +2,6 @@ import axios from "axios";
 
 const API = "http://localhost:3000";
 const path = "/tasks";
-const pathCompleted = "/complatedTasks";
 
 const getTasks = () => {
   return axios.get(`${API}${path}`);
