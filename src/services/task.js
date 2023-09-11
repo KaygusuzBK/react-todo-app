@@ -1,5 +1,4 @@
 import axios from "axios";
-import memo from "react";
 
 const API = "http://localhost:3000";
 const path = "/tasks";
@@ -22,6 +21,10 @@ const updateTask = (id, task) => {
 
 const deleteTaskId = (id) => {
   return axios.delete(`${API}${path}/${id}`);
+};
+
+const sendCompletedTask = (task) => {
+  pushTask(task);
 };
 
 export { getTasks, getTaskId, pushTask, updateTask, deleteTaskId };

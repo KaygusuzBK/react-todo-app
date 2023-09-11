@@ -1,27 +1,38 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { getTasks, getTaskId } from "../../services//task.js";
+import { useEffect, useState } from "react";
+import { getTasks } from "../../services//task.js";
 import TaskForm from "../../components/task/taskForm/taskForm.jsx";
-import classNames from "classnames";
 
 function Tasks() {
-  const [tasks, setTasks] = React.useState([]);
+  const [tasks, setTasks] = useState([]);
 
-  React.useEffect(() => {
-    getTasks().then(({ data }) => setTasks(data));
+  const getTaskList = () => {
+    getTasks().then(({ data }) => {
+      const tasks = data.filter((task) => task.status === false);
+      setTasks(tasks);
+    });
+  };
+
+  useEffect(() => {
+    getTaskList();
   }, []);
 
   return (
     <>
-      <div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gird-cols-7 gap-3 absolute w-full h-full p-4">
-          {tasks.map((task) => (
-            <div key={task.id}>
-              <TaskForm task={task} />
-            </div>
-          ))}
+      <div className="items-center justify-center flex flex-col text-center h-32">
+        <div className="flex justify-between items-center w-4/5 border shadow-md h-14 m-1  bg-gray-400 hover:bg">
+          <div className="w-1/3 text-lg font-bold">Durum</div>
+          <div className="w-1/3 text-lg font-bold">Başlık</div>
+          <div className="w-1/3 text-lg font-bold">Açıklama</div>
+          <div className="w-1/3 text-lg font-bold">Bitiş Tarihi</div>
+          <div className="w-1/3 text-lg font-bold">İşlemler</div>
+          <hr />
         </div>
       </div>
+      {tasks.map((task) => (
+        <div key={task.id}>
+          <TaskForm task={task} />
+        </div>
+      ))}
     </>
   );
 }

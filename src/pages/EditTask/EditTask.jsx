@@ -3,6 +3,7 @@ import { Link, useHref, useParams } from "react-router-dom";
 import Input from "../../components/input/input";
 import Button from "../../components/button/button";
 import { useState, useEffect } from "react";
+import Modal from "../../components/modal/Modal";
 
 function EditTask() {
   let { id } = useParams();
@@ -16,25 +17,25 @@ function EditTask() {
   return (
     <>
       <div className="text-center ">
-        <h1 className="text-3xl  p-2 border">Task Edit</h1>
+        <h1 className="text-3xl  p-2 border">Task Güncelleme</h1>
         <div className="p-2">
-          <label>TİTLE</label>
+          <label>Başlık</label>
           <Input
             className="rounded-lg shadow-lg"
             value={task.title}
             onChange={(e) => setTask({ ...task, title: e.target.value })}
           />
         </div>
-        <div>
-          <label>Description</label>
+        <div className="p-2">
+          <label>İçerik</label>
           <Input
             className="rounded-lg shadow-lg"
             value={task.description}
             onChange={(e) => setTask({ ...task, description: e.target.value })}
           />
         </div>
-        <div>
-          <label>Due Date</label>
+        <div className="p-2">
+          <label>Son Bitiş Tarihi</label>
           <Input
             className="rounded-lg shadow-lg "
             value={task.dueDate}
@@ -43,13 +44,13 @@ function EditTask() {
           />
         </div>
         <div className="p-2">
-          <Button
-            className="bg-green -600 hover:bg-green-500 text-white font-bold py-2 px-6 "
-            text={"GÜNCELLE"}
-            onClick={() => {
-              updateTask(id, task);
-            }}
-            Link={"/"}
+          <Modal
+            task={task}
+            id={id}
+            modalsorusu={"Günceleme işlemini onaylıyor musunuz?"}
+            className="bg-green-600 hover:bg-green-500 text font-bold py-2 px-6 z-50"
+            Text={"Güncelle"}
+            fonksiyon={updateTask}
           />
         </div>
       </div>

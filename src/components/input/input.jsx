@@ -1,4 +1,13 @@
-function Input({ placeholder, type, onChange, value }) {
+function Input({
+  placeholder,
+  type,
+  onChange,
+  value,
+  checked,
+  minLength,
+  maxLength,
+  required,
+}) {
   return (
     <>
       <div>
@@ -8,6 +17,10 @@ function Input({ placeholder, type, onChange, value }) {
           type={type}
           onChange={onChange}
           value={value}
+          checked={checked}
+          required={required}
+          minLength={minLength}
+          maxLength={maxLength}
         />
       </div>
     </>
