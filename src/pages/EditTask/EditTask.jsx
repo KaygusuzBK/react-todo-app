@@ -48,7 +48,7 @@ function EditTask() {
             task={task}
             id={id}
             modalsorusu={"Günceleme işlemini onaylıyor musunuz?"}
-            className="bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-6 "
+            className="bg-green-600 hover:bg-green-500 text font-bold py-2 px-6 z-50"
             Text={"Güncelle"}
             fonksiyon={updateTask}
           />

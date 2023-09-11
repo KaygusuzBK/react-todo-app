@@ -556,6 +556,10 @@ body {
   top: 0px;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
 .m-1 {
   margin: 0.25rem;
 }
@@ -614,10 +618,6 @@ body {
 
 .h-full {
   height: 100%;
-}
-
-.h-28 {
-  height: 7rem;
 }
 
 .w-1\/2 {
@@ -724,6 +724,11 @@ body {
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
+.bg-blue-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 58 138 / var(--tw-bg-opacity));
+}
+
 .bg-cyan-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(8 145 178 / var(--tw-bg-opacity));
@@ -769,26 +774,6 @@ body {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
-.bg-slate-950 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(2 6 23 / var(--tw-bg-opacity));
-}
-
-.bg-slate-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
-}
-
-.bg-slate-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(15 23 42 / var(--tw-bg-opacity));
-}
-
-.bg-blue-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 58 138 / var(--tw-bg-opacity));
-}
-
 .bg-opacity-60 {
   --tw-bg-opacity: 0.6;
 }
@@ -805,6 +790,11 @@ body {
   padding: 1rem;
 }
 
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -818,15 +808,6 @@ body {
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.pl-2 {
-  padding-left: 0.5rem;
 }
 
 .text-center {

@@ -6,6 +6,7 @@ function Input({
   checked,
   minLength,
   maxLength,
+  required,
 }) {
   return (
     <>
@@ -17,6 +18,9 @@ function Input({
           onChange={onChange}
           value={value}
           checked={checked}
+          required={required}
+          minLength={minLength}
+          maxLength={maxLength}
         />
       </div>
     </>

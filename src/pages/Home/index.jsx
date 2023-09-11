@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { getTasks } from "../../services//task.js";
 import TaskForm from "../../components/task/taskForm/taskForm.jsx";
-import { useTranslation } from "react-i18next";
-import i18next from "../../language/1i8.js";
 
 function Tasks() {
-  const { t, i18n } = useTranslation();
-
   const [tasks, setTasks] = useState([]);
-  
-  useEffect(() => {
+
+  const getTaskList = () => {
     getTasks().then(({ data }) => {
       const tasks = data.filter((task) => task.status === false);
       setTasks(tasks);
     });
+  };
+
+  useEffect(() => {
+    getTaskList();
   }, []);
 
   return (

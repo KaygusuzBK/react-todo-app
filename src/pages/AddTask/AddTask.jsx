@@ -23,7 +23,7 @@ function AddTask() {
             minLength="3"
             maxLength="20"
             onChange={(e) => setTask({ ...task, title: e.target.value })}
-            required
+            required={true}
           ></Input>
           <h1 className="text-xl font-bold ">Taskın İçeriği:</h1>
           <Input

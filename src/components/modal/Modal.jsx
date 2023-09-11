@@ -14,15 +14,15 @@ function Modal({ modalsorusu, Text, id, task, fonksiyon, className }) {
         {Text}
       </button>
       {modal && (
-        <div className="modal">
-          <div className="h-full w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-60">
-            <div className="bg-slate-100 shadow-xl rounded-3xl w-1/2">
-              <div className="h-full border border-black m-3 p-2 flex items-center justify-center rounded-xl bg-slate-7 00 text-white">
+        <div className="modal z-50">
+          <div className="h-full w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-60 z-50">
+            <div className="bg-slate-100 shadow-xl rounded-3xl w-1/2 ">
+              <div className="h-full border border-black m-3 p-2 flex items-center justify-center rounded-xl bg-slate-7 00 text-black">
                 <h1 className="h-24">{modalsorusu}</h1>
               </div>
               <div className="border border-transparent rounded-3xl m-3 p-4">
                 <button
-                  className="bg-blue-500 text-white rounded-lg p-2 m-2 w-16"
+                  className="bg-blue-500 text-black rounded-lg p-2 m-2 w-16"
                   onClick={() => {
                     fonksiyon(id, task);
                     toggleModal();
@@ -31,7 +31,7 @@ function Modal({ modalsorusu, Text, id, task, fonksiyon, className }) {
                   Evet
                 </button>
                 <button
-                  className="bg-red-500 text-white rounded-lg p-2 m-2 w-16"
+                  className="bg-red-500 text-black rounded-lg p-2 m-2 w-16"
                   onClick={toggleModal}
                 >
                   Hayır
