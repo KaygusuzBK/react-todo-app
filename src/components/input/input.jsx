@@ -3,21 +3,20 @@ function Input({
   type,
   onChange,
   value,
-  checked,
   minLength,
   maxLength,
   required,
+  className,
 }) {
   return (
     <>
       <div>
         <input
-          className="border rounded shadow-md"
+          className={className}
           placeholder={placeholder}
           type={type}
           onChange={onChange}
           value={value}
-          checked={checked}
           required={required}
           minLength={minLength}
           maxLength={maxLength}

@@ -24,7 +24,6 @@ function Header() {
             >
               Tamamlananlar
             </a>
-            <button className="px-2 py-3border bg-blue-900">Dil</button>
           </div>
         </div>
       </header>

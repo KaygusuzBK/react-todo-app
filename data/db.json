@@ -14,7 +14,7 @@
       "title": "test2",
       "description": "test2",
       "dueDate": "0999-09-09",
-      "status": false,
+      "status": true,
       "id": 17
     },
     {

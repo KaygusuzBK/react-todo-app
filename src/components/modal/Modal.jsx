@@ -22,7 +22,7 @@ function Modal({ modalsorusu, Text, id, task, fonksiyon, className }) {
               </div>
               <div className="border border-transparent rounded-3xl m-3 p-4">
                 <button
-                  className="bg-blue-500 text-black rounded-lg p-2 m-2 w-16"
+                  className="bg-blue-500 text-white rounded-lg p-2 m-2 w-16"
                   onClick={() => {
                     fonksiyon(id, task);
                     toggleModal();
@@ -31,7 +31,7 @@ function Modal({ modalsorusu, Text, id, task, fonksiyon, className }) {
                   Evet
                 </button>
                 <button
-                  className="bg-red-500 text-black rounded-lg p-2 m-2 w-16"
+                  className="bg-red-500 text-white rounded-lg p-2 m-2 w-16"
                   onClick={toggleModal}
                 >
                   Hayır
@@ -40,7 +40,7 @@ function Modal({ modalsorusu, Text, id, task, fonksiyon, className }) {
             </div>
           </div>
         </div>
-      )}
+      )}  
     </>
   );
 }

@@ -13,7 +13,7 @@ function TaskForm({ task, className }) {
   return (
     <>
       <div className="items-center justify-center flex flex-col text-center">
-        <div className="flex justify-between items-center p-3 w-4/5 border shadow-md h-20 m-1 mix-blend-multiply bg-gray-200 hover:bg-gray-300">
+        <div className="flex justify-between items-center w-4/5 border shadow-md h-20 m-1 mix-blend-multiply bg-gray-200 hover:bg-gray-300">
           <Checkbox task={task} onSuccess={getTasks} className="w-1/3 h-5" />
           <div className="w-1/3 text-lg">{task.title}</div>
           <div className="w-1/3 text-lg">{task.description}</div>
