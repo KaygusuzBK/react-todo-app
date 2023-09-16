@@ -15,7 +15,7 @@ function CompletedTasks() {
   return (
     <>
       <div className="items-center justify-center flex flex-col text-center h-32">
-        <div className="flex justify-between items-center p-3 w-4/5 border shadow-md h-14 m-1 mix-blend-multiply bg-gray-400 hover:bg">
+        <div className="flex justify-between items-center p-3 w-4/6 border shadow-md h-14 m-1 mix-blend-multiply bg-gray-400 hover:bg">
           <div className="w-1/3 text-lg font-bold">Durum</div>
           <div className="w-1/3 text-lg font-bold">Başlık</div>
           <div className="w-1/3 text-lg font-bold">Açıklama</div>

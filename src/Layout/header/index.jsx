@@ -1,5 +1,6 @@
 import Logo from "./logo/logo";
-import Button from "../../components/button/Button";
+import Button from "../../components/button/button";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
@@ -7,7 +8,7 @@ function Header() {
       <header className="h-24 border-b shadow-xl bg-cyan-600  ">
         <div className="flex items-center justify-between h-full ">
           <div className="flex justify-center items-center w-64">
-            <label className="text-white text-4xl p-2">Todo App</label>
+            <NavLink to="/" className="text-white text-4xl p-2" >Todo App</NavLink>
             <Logo className="items-center justify-end" id="logo" />
           </div>
           <a

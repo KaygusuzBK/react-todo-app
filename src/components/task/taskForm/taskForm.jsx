@@ -12,13 +12,13 @@ function deleteTask(id) {
 function TaskForm({ task, className }) {
   return (
     <>
-      <div className="items-center justify-center flex flex-col text-center">
-        <div className="flex justify-between items-center w-4/5 border shadow-md h-20 m-1 mix-blend-multiply bg-gray-200 hover:bg-gray-300">
-          <Checkbox task={task} onSuccess={getTasks} className="w-1/3 h-5" />
-          <div className="w-1/3 text-lg">{task.title}</div>
-          <div className="w-1/3 text-lg">{task.description}</div>
-          <div className="w-1/3 text-lg">{task.dueDate}</div>
-          <div className="w-1/3">
+      <div className="items-center flex flex-col">
+        <div className="flex justify-start items-center w-4/6 border shadow-md h-20 m-1 mix-blend-multiply bg-gray-200 hover:bg-gray-300">
+          <Checkbox task={task} onSuccess={getTasks} className="h-16 m-2" />
+          <div className="text-lg font-bold">{task.title}</div>
+          <div className="text-lg p-3 max-h-20">{task.description}</div>
+          <div className="text-lg p-3 font-bold">{task.dueDate}</div>
+          <div className="text-lg p-3">
             <a
               className={classNames(
                 "bg-green-600 text-white rounded-xl hover:bg-green-700 px-4 py-2 z-50"
@@ -31,13 +31,12 @@ function TaskForm({ task, className }) {
             <Modal
               className="bg-red-700 text-white rounded-xl hover:bg-red-900 ml-2 px-4 py-2 z-50"
               modalsorusu="Silmek istediğinize emin misiniz?"
-              Text="Sil"
+              text="Sil"
               id={task.id}
               task={task}
               fonksiyon={deleteTask}
             />
           </div>
-          <hr />
         </div>
       </div>
     </>

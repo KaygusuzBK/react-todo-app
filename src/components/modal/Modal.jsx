@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { updateTask } from "../../services/task";
 
-function Modal({ modalsorusu, Text, id, task, fonksiyon, className }) {
+function Modal({ modalsorusu, text, id, task, fonksiyon, className }) {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -11,7 +11,7 @@ function Modal({ modalsorusu, Text, id, task, fonksiyon, className }) {
   return (
     <>
       <button onClick={toggleModal} className={className}>
-        {Text}
+        {text}
       </button>
       {modal && (
         <div className="modal z-50">

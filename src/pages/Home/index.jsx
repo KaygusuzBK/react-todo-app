@@ -18,13 +18,12 @@ function Tasks() {
 
   return (
     <>
-      <div className="items-center justify-center flex flex-col text-center my-2">
-        <div className="flex justify-between items-center w-4/5 border shadow-md h-14 bg-gray-400 hover:bg">
-          <div className="w-1/3 text-lg font-bold">Durum</div>
-          <div className="w-1/3 text-lg font-bold">Başlık</div>
-          <div className="w-1/3 text-lg font-bold">Açıklama</div>
-          <div className="w-1/3 text-lg font-bold">Bitiş Tarihi</div>
-          <div className="w-1/3 text-lg font-bold">İşlemler</div>
+      <div className="flex flex-col justify-center items-center">
+        <div className="flex justify-between items-center p-2 w-4/6 border shadow-md h-14 bg-gray-400 hover:bg">
+          <div className="w-1/2 text-lg font-bold ml-6">Başlık</div>
+          <div className="w-1/2 text-lg font-bold">Açıklama</div>
+          <div className="w-1/2 text-lg font-bold">Bitiş Tarihi</div>
+          <div className="text-lg font-bold mr-14">İşlemler</div>
         </div>
       </div>
       {tasks.map((task) => (
