@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { pushTask } from "../../services//task.js";
 import Input from "../../components/input/input.jsx";
-import Button from "../../components/button/Button.jsx";
+import Button from "../../components/button/button.jsx";
 import { memo } from "react";
 import classNames from "classnames";
-import Alert from "../../components/alert/alert.jsx";
 
 function AddTask() {
   const [task, setTask] = useState({
@@ -80,6 +79,8 @@ function AddTask() {
       <div className="flex justify-center">
         <>
           <Button
+            href={"/"}
+            id="addTask"
             className={classNames(
               "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded",
               {
@@ -109,10 +110,9 @@ function AddTask() {
               )
                 pushTask(task);
               else {
-                <Alert />;
+                console.log("Task eklenemedi");
               }
             }}
-            id="addTask"
           ></Button>
         </>
       </div>

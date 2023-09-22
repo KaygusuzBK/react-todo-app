@@ -40,7 +40,7 @@ function Modal({ modalsorusu, text, id, task, fonksiyon, className }) {
             </div>
           </div>
         </div>
-      )}  
+      )}
     </>
   );
 }

@@ -15,10 +15,10 @@ function TaskForm({ task, className }) {
       <div className="items-center flex flex-col">
         <div className="flex justify-start items-center w-4/6 border shadow-md h-20 m-1 mix-blend-multiply bg-gray-200 hover:bg-gray-300">
           <Checkbox task={task} onSuccess={getTasks} className="h-16 m-2" />
-          <div className="text-lg font-bold">{task.title}</div>
-          <div className="text-lg p-3 max-h-20">{task.description}</div>
-          <div className="text-lg p-3 font-bold">{task.dueDate}</div>
-          <div className="text-lg p-3">
+          <div className="text-lg flex font-bold">{task.title}</div>
+          <div className="text-lg flex p-3 max-h-20 overflow-x-auto">{task.description}</div>
+          <div className="text-lg flex p-3 font-bold">{task.dueDate}</div>
+          <div className="text-lg flex p-3">
             <a
               className={classNames(
                 "bg-green-600 text-white rounded-xl hover:bg-green-700 px-4 py-2 z-50"
