@@ -16,15 +16,14 @@ function Modal({ modalsorusu, text, id, task, fonksiyon, className }) {
       {modal && (
         <div className="modal z-50">
           <div className="h-full w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-60 z-50">
-            <div className="bg-slate-100 shadow-xl rounded-3xl w-1/2 ">
-              <div className="h-full border border-black m-3 p-2 flex items-center justify-center rounded-xl bg-slate-7 00 text-black">
-                <h1 className="h-24">{modalsorusu}</h1>
+            <div className="bg-slate-100  rounded-3xl w-1/2 ">
+              <div className="h-full border border-black m-3 p-2 flex items-center justify-center rounded-xl bg-white text-black">
+                <h1 className="h-24 z-50">{modalsorusu}</h1>
               </div>
-              <div className="border border-transparent rounded-3xl m-3 p-4">
+              <div className="border  rounded-3xl m-3 p-4 flex items-center justify-center bg-slate-100 text-black">
                 <button
                   className="bg-blue-500 text-white rounded-lg p-2 m-2 w-16"
                   onClick={() => {
-                    fonksiyon(id, task);
                     toggleModal();
                   }}
                 >
