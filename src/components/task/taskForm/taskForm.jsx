@@ -1,10 +1,10 @@
-import { deleteTaskId } from "../../../services/task.js";
-import { useEffect } from "react";
-import Button from "../../button/button.jsx";
+import { deleteTaskId, getTasks } from "../../../services/task.js";
+import { useState, useEffect } from "react";
+import Button from "../../button/Button.jsx";
 import Checkbox from "../../checkbox/CheckBox..jsx";
 import classNames from "classnames";
 import Modal from "../../modal/Modal.jsx";
-import { getTasks } from "../../../services/task.js";
+import { memo } from "react";
 
 function deleteTask() {
   deleteTaskId(id);
@@ -19,33 +19,6 @@ function test() {
 }
 
 function TaskForm({ task }) {
-  // useEffect(() => {
-  //   if (task.title.length < 3 || task.title.length > 20 || task.title === "") {
-  //     document.getElementById("title").style.borderColor = "red";
-  //   } else {
-  //     document.getElementById("title").style.borderColor = "green";
-  //   }
-  // }, [task.title]);
-
-  // useEffect(() => {
-  //   if (task.dueDate === "" || task.dueDate === null) {
-  //     document.getElementById("dueDate").style.borderColor = "red";
-  //   } else {
-  //     document.getElementById("dueDate").style.borderColor = "green";
-  //   }
-  // }, [task.dueDate]);
-
-  // useEffect(() => {
-  //   if (
-  //     task.description.length < 3 ||
-  //     task.description.length > 20 ||
-  //     task.description === ""
-  //   ) {
-  //     document.getElementById("description").style.borderColor = "red";
-  //   } else {
-  //     document.getElementById("description").style.borderColor = "green";
-  //   }
-  // }, [task.description]);
 
   return (
     <>
@@ -56,7 +29,7 @@ function TaskForm({ task }) {
             onSuccess={getTasks}
             className="w-5 h-4 ml-3 m-2"
           />
-          <div className="text-lg flex font-bold w-1/12">
+          <div className="text-lg flex font-bold w-1/12 overflow-auto">
             {task.title === "" ? "Başlık belirtilmedi" : task.title}
           </div>
           <div className="text-lg flex p-3 max-h-20 w-6/12  overflow-x-auto ">
@@ -64,7 +37,7 @@ function TaskForm({ task }) {
               ? "Açıklama belirtilmedi"
               : task.description}
           </div>
-          <div className="text-lg flex p-3 items-center justify-center font-bold w-2/12">
+          <div className="text-lg flex p-3 items-center justify-center font-bold w-2/12 ">
             {task.dueDate === null ? "Tarih belirtilmedi" : task.dueDate}
           </div>
           <div className="text-lg flex p-3 items-center justify-center font-bold ">
@@ -93,4 +66,4 @@ function TaskForm({ task }) {
   );
 }
 
-export default TaskForm;
+export default memo(TaskForm);

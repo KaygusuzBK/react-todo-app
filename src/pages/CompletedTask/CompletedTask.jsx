@@ -1,6 +1,7 @@
-import { useState, useEffect, } from "react";
+import { useState, useEffect } from "react";
 import TaskForm from "../../components/task/taskForm/taskForm.jsx";
 import { getTasks } from "../../services/task.js";
+import ListBar from "../../components/task/listBar/index.jsx";
 
 function CompletedTasks() {
   const [completedTasks, setCompletedTasks] = useState([]);
@@ -14,22 +15,13 @@ function CompletedTasks() {
 
   return (
     <>
-      <div className="items-center justify-center flex flex-col text-center ">
-        <div className="flex justify-between items-center p-3 w-4/6 border shadow-md h-14 m-1 bg-gray-400 hover:bg">
-          <div className="w-1/3 text-lg font-bold">Başlık</div>
-          <div className="w-1/3 text-lg font-bold">Açıklama</div>
-          <div className="w-1/3 text-lg font-bold">Bitiş Tarihi</div>
-          <div className="w-1/3 text-lg font-bold">İşlemler</div>
-          <hr />
+      <ListBar />
+
+      {completedTasks.map((task) => (
+        <div key={task.id}>
+          <TaskForm task={task} />
         </div>
-      </div>
-      <div>
-        {completedTasks.map((task) => (
-          <div key={task.id}>
-            <TaskForm task={task} />
-          </div>
-        ))}
-      </div>
+      ))}
     </>
   );
 }
