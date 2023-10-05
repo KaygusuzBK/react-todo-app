@@ -1,5 +1,5 @@
 import { deleteTaskId, getTasks } from "../../../services/task.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Button from "../../button/Button.jsx";
 import Checkbox from "../../checkbox/CheckBox..jsx";
 import classNames from "classnames";
@@ -7,6 +7,8 @@ import Modal from "../../modal/Modal.jsx";
 import { memo } from "react";
 
 function deleteTask() {
+  const id = useRef();
+
   deleteTaskId(id);
   getTasks().then(({ data }) => {
     const tasks = data.filter((task) => task.status === false);
@@ -14,12 +16,7 @@ function deleteTask() {
   });
 }
 
-function test() {
-  console.log("test");
-}
-
 function TaskForm({ task }) {
-
   return (
     <>
       <div className="items-center flex flex-col">
@@ -50,15 +47,17 @@ function TaskForm({ task }) {
             >
               Düzenle
             </a>
-            <Modal
-              className="bg-red-700 text-white rounded-xl hover:bg-red-900 ml-2 px-4 py-2 z-50"
-              modalsorusu="Silmek istediğinize emin misiniz?"
-              text="Sil"
-              id={task.id}
-              task={task}
-              fonksiyon={test()}
-              onSuccess={getTasks}
-            />
+            <div className="z-50">
+              <Modal
+                className="bg-red-700 text-white rounded-xl hover:bg-red-900 ml-2 px-4 py-2"
+                modalsorusu="Silmek istediğinize emin misiniz?"
+                text="Sil"
+                id={task.id}
+                task={task}
+                fonksiyon={deleteTask}
+                onSuccess={getTasks}
+              />
+            </div>
           </div>
         </div>
       </div>

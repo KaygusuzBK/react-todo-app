@@ -1,72 +1,123 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
+import { useParams } from "react-router-dom";
+import { updateTask, getTaskId } from "../../../services/task.js";
 import Input from "../../input/input.jsx";
-import Button from "../../button/Button.jsx";
-import classNames from "classnames";
-import { memo } from "react";
+import Modal from "../../modal/Modal.jsx";
 
-function Form({ task, setTask }) {
-  useEffect(() => {
-    if (task.title.length < 3 || task.title.length > 20 || task.title === "") {
-      document.getElementById("title").style.borderColor = "red";
-    } else {
-      document.getElementById("title").style.borderColor = "green";
-    }
-  }, [task.title]);
+function Form({ header, modalText, modalSoru, modalFunction }) {
+  let { id } = useParams();
 
-  useEffect(() => {
-    if (task.dueDate === "" || task.dueDate === null) {
-      document.getElementById("dueDate").style.borderColor = "red";
-    } else {
-      document.getElementById("dueDate").style.borderColor = "green";
-    }
-  }, [task.dueDate]);
+  const [task, setTask] = useState({
+    title: "",
+    description: "",
+    dueDate: "",
+    status: false,
+  });
 
   useEffect(() => {
-    if (
-      task.description.length < 3 ||
-      task.description.length > 20 ||
-      task.description === ""
-    ) {
-      document.getElementById("description").style.borderColor = "red";
-    } else {
-      document.getElementById("description").style.borderColor = "green";
+    if (id) {
+      getTaskId(id).then((res) => {
+        setTask(res.data);
+      });
     }
-  }, [task.description]);
+  }, [id]);
+
+  const isTitleValid = task.title.length >= 2 && task.title.length <= 20;
+  const isDescriptionValid =
+    task.description.length >= 2 && task.description.length <= 100;
+  const isDueDateValid = task.dueDate.length >= 2;
+
+  useEffect(() => {
+    const titleElement = document.getElementById("title");
+    const descriptionElement = document.getElementById("description");
+    const dueDateElement = document.getElementById("dueDate");
+
+    if (titleElement) {
+      titleElement.style.border = isTitleValid
+        ? "2px solid green"
+        : "2px solid red";
+    }
+
+    if (descriptionElement) {
+      descriptionElement.style.border = isDescriptionValid
+        ? "2px solid green"
+        : "2px solid red";
+    }
+
+    if (dueDateElement) {
+      dueDateElement.style.border = isDueDateValid
+        ? "2px solid green"
+        : "2px solid red";
+    }
+
+    const modalBtn = document.getElementById("modalBtn");
+
+    if (modalBtn) {
+      modalBtn.style.display =
+        isTitleValid && isDescriptionValid && isDueDateValid ? "block" : "none";
+    }
+  }, [task.title, task.description, task.dueDate]);
+
+  const handleModalButtonClick = () => {
+    if (task.title && task.description && task.dueDate) {
+      modalFunction(id, task);
+    } else {
+      alert("Lütfen tüm alanları doldurunuz.");
+    }
+  };
 
   return (
-    <>
-      <div className="flex p-3 justify-center text-center m-4">
-        <div className="grid gap-2 grid-cols-2">
-          <h1 className="text-xl font-bold ">Task Başlığı:</h1>
-          <Input
-            placeholder="title"
-            minLength="3"
-            maxLength="20"
-            onChange={(e) => setTask({ ...task, title: e.target.value })}
-            required={true}
-            id="title"
-            className={"border-2 border-gray-500 p-2 rounded-lg"}
-          ></Input>
-
-          <h1 className="text-xl font-bold ">Taskın İçeriği:</h1>
-          <Input
-            placeholder="description"
-            type="textarea"
-            onChange={(e) => setTask({ ...task, description: e.target.value })}
-            className={"border-2 border-gray-500 p-2 rounded-lg h-56"}
-            id={"description"}
-          ></Input>
-          <h1 className="text-xl font-bold">Son Tarihi:</h1>
-          <Input
-            data-date-format="DD MMMM YYYY"
-            type="date"
-            id="dueDate"
-            onChange={(e) => setTask({ ...task, dueDate: e.target.value })}
-            className={"border-2 border-gray-500 p-2 rounded-lg"}
-          ></Input>
-        </div>
+    <div className="text-center">
+      <h1 className="text-4xl p-2 m-2 border">{header}</h1>
+      <div className="p-2">
+        <label className="text-xl">Başlık</label>
+        <Input
+          minLength={2}
+          maxLength={20}
+          className={`rounded-lg px-5 py-2 m-2 border-gray-500 text-black bg-slate-300`}
+          value={task.title}
+          onChange={(e) => setTask({ ...task, title: e.target.value })}
+          required={true}
+          id={"title"}
+        />
       </div>
-    </>
+      <div className="p-2">
+        <label className="text-xl">İçerik</label>
+        <Input
+          minLength={2}
+          maxLength={100}
+          className={`rounded-lg shadow-lg px-5 py-2 m-2 w-72 h-80 bg-slate-300 text-black`}
+          value={task.description}
+          onChange={(e) => setTask({ ...task, description: e.target.value })}
+          required={true}
+          type={"textarea"}
+          id={"description"}
+        />
+      </div>
+      <div className="p-2">
+        <label>Son Bitiş Tarihi</label>
+        <Input
+          className={`rounded-lg shadow-lg px-5 py-2 m-2 text-lg border bg-slate-300 text-black`}
+          value={task.dueDate}
+          type={"date"}
+          onChange={(e) => setTask({ ...task, dueDate: e.target.value })}
+          required={true}
+          id={"dueDate"}
+        />
+      </div>
+
+      <div className="p-2 m-2">
+        <Modal
+          task={task}
+          modalsorusu={modalSoru}
+          className="bg-green-600 hover-bg-green-500 text font-bold py-2 px-6 z-50 rounded-lg text-white"
+          text={modalText}
+          fonksiyon={handleModalButtonClick}
+          id="modalBtn"
+          
+        />
+      </div>
+    </div>
   );
 }
 

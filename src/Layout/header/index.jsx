@@ -6,7 +6,7 @@ function Header() {
     <>
       <header className="h-24 border-b shadow-xl bg-cyan-900 bg-opacity-95 p-4">
         <div className="flex items-center justify-between h-full">
-          <div className="flex justify-center items-center w-60 border border-cyan-100 rounded-full bg-cyan-100 bg-opacity-30 m-4">
+          <div className="flex justify-center items-center w-60 border border-cyan-100 rounded-full bg-cyan-100 bg-opacity-30 m-1">
             <NavLink to="/" className="text-black text-3xl p-2">
               Todo App
             </NavLink>

@@ -15,7 +15,7 @@ function Tasks() {
 
   useEffect(() => {
     getTaskList();
-  }, []);
+  }, [setTasks]);
 
   return (
     <>

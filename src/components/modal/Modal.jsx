@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { updateTask } from "../../services/task";
 
 function Modal({ modalsorusu, text, id, task, fonksiyon, className }) {
   const [modal, setModal] = useState(false);
@@ -24,6 +23,7 @@ function Modal({ modalsorusu, text, id, task, fonksiyon, className }) {
                 <button
                   className="bg-blue-500 text-white rounded-lg p-2 m-2 w-16"
                   onClick={() => {
+                    fonksiyon(task);
                     toggleModal();
                   }}
                 >

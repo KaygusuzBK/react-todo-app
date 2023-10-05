@@ -23,8 +23,4 @@ const deleteTaskId = (id) => {
   return axios.delete(`${API}${path}/${id}`);
 };
 
-const sendCompletedTask = (task) => {
-  pushTask(task);
-};
-
 export { getTasks, getTaskId, pushTask, updateTask, deleteTaskId };
