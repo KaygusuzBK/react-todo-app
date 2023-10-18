@@ -1,47 +1,67 @@
-import { deleteTaskId } from "../../../services/task.js";
-import Button from "../../button/button.jsx";
-import Checkbox from "../../checkbox/CheckBox..jsx";
+import { deleteTaskId, getTasks } from "~/services/task.js";
+import { useState, useEffect, useRef } from "react";
+import Checkbox from "~/components/checkbox/CheckBox.jsx";
 import classNames from "classnames";
-import Modal from "../../modal/Modal.jsx";
-import { getTasks } from "../../../services/task.js";
+import Modal from "~/components/modal/Modal.jsx";
+import { memo } from "react";
 
-function deleteTask(id) {
+function deleteTask() {
+  const id = useRef();
+
   deleteTaskId(id);
+  getTasks().then(({ data }) => {
+    const tasks = data.filter((task) => task.status === false);
+    setTasks(tasks);
+  });
 }
 
-function TaskForm({ task, className }) {
+function TaskForm({ task }) {
   return (
     <>
-      <div className="items-center justify-center flex flex-col text-center">
-        <div className="flex justify-between items-center p-3 w-4/5 border shadow-md h-20 m-1 mix-blend-multiply bg-gray-200 hover:bg-gray-300">
-          <Checkbox task={task} onSuccess={getTasks} className="w-1/3 h-5" />
-          <div className="w-1/3 text-lg">{task.title}</div>
-          <div className="w-1/3 text-lg">{task.description}</div>
-          <div className="w-1/3 text-lg">{task.dueDate}</div>
-          <div className="w-1/3">
+      <div className="items-center flex flex-col">
+        <div className="flex justify-start items-center w-4/6 border shadow-md h-20 m-1 mix-blend-multiply bg-gray-200 hover:bg-gray-300">
+          <Checkbox
+            task={task}
+            onSuccess={getTasks}
+            className="w-5 h-4 ml-3 m-2"
+          />
+          <div className="text-lg flex font-bold w-1/12 overflow-auto">
+            {task.title === "" ? "Başlık belirtilmedi" : task.title}
+          </div>
+          <div className="text-lg flex p-3 max-h-20 w-6/12  overflow-x-auto ">
+            {task.description === ""
+              ? "Açıklama belirtilmedi"
+              : task.description}
+          </div>
+          <div className="text-lg flex p-3 items-center justify-center font-bold w-2/12 ">
+            {task.dueDate === null ? "Tarih belirtilmedi" : task.dueDate}
+          </div>
+          <div className="text-lg flex p-3 items-center justify-center font-bold ">
             <a
               className={classNames(
-                "bg-green-600 text-white rounded-xl hover:bg-green-700 px-4 py-2 z-50"
+                "bg-green-600 text-white rounded-xl hover:bg-green-700 px-4 py-2 "
               )}
               text="Düzenle"
               href={`/task-edit/${task.id}`}
             >
               Düzenle
             </a>
-            <Modal
-              className="bg-red-700 text-white rounded-xl hover:bg-red-900 ml-2 px-4 py-2 z-50"
-              modalsorusu="Silmek istediğinize emin misiniz?"
-              Text="Sil"
-              id={task.id}
-              task={task}
-              fonksiyon={deleteTask}
-            />
+            <div className="z-50">
+              <Modal
+                className="bg-red-700 text-white rounded-xl hover:bg-red-900 ml-2 px-4 py-2"
+                modalsorusu="Silmek istediğinize emin misiniz?"
+                text="Sil"
+                id={task.id}
+                task={task}
+                fonksiyon={deleteTask}
+                onSuccess={getTasks}
+              />
+            </div>
           </div>
-          <hr />
         </div>
       </div>
     </>
   );
 }
 
-export default TaskForm;
+export default memo(TaskForm);

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Tasks from "../../pages/Home";
-import { updateTask } from "../../services/task";
+import Tasks from "~/pages/Home";
+import { updateTask } from "~/services/task";
 
 function Checkbox({ task, className, onSuccess, onError }) {
   return (

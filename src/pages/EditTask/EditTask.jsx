@@ -1,59 +1,55 @@
-import { getTaskId, updateTask } from "../../services/task";
-import { Link, useHref, useParams } from "react-router-dom";
-import Input from "../../components/input/input";
-import Button from "../../components/button/button";
+import { getTaskId, updateTask } from "~/services/task";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Modal from "../../components/modal/Modal";
+import Form from "~/components/task/form";
 
 function EditTask() {
   let { id } = useParams();
 
-  const [task, setTask] = useState({});
+  const [task, setTask] = useState({
+    title: "",
+    description: "",
+    dueDate: "",
+    status: false,
+  });
 
   useEffect(() => {
     getTaskId(id).then(({ data }) => setTask(data));
   }, [getTaskId]);
 
+  // useEffect(() => {
+  //   if (rules[1]) {
+  //     document.getElementById("description").style.border = "2px solid red";
+  //   } else {
+  //     document.getElementById("description").style.border = "2px solid green";
+  //   }
+  // }, [task.description]);
+
+  // useEffect(() => {
+  //   if (rules[2]) {
+  //     document.getElementById("dueDate").style.border = "2px solid red";
+  //   } else {
+  //     document.getElementById("dueDate").style.border = "2px solid green";
+  //   }
+  // }, [task.dueDate]);
+
+  // useEffect(() => {
+  //   if (rules[0] || rules[1] || rules[2]) {
+  //     updateBtn.style.display = "none";
+  //   } else {
+  //   }
+  // }, [task.title, task.description, task.dueDate]);
+
   return (
     <>
-      <div className="text-center ">
-        <h1 className="text-3xl  p-2 border">Task Güncelleme</h1>
-        <div className="p-2">
-          <label>Başlık</label>
-          <Input
-            className="rounded-lg shadow-lg"
-            value={task.title}
-            onChange={(e) => setTask({ ...task, title: e.target.value })}
-          />
-        </div>
-        <div className="p-2">
-          <label>İçerik</label>
-          <Input
-            className="rounded-lg shadow-lg"
-            value={task.description}
-            onChange={(e) => setTask({ ...task, description: e.target.value })}
-          />
-        </div>
-        <div className="p-2">
-          <label>Son Bitiş Tarihi</label>
-          <Input
-            className="rounded-lg shadow-lg "
-            value={task.dueDate}
-            type={"date"}
-            onChange={(e) => setTask({ ...task, dueDate: e.target.value })}
-          />
-        </div>
-        <div className="p-2">
-          <Modal
-            task={task}
-            id={id}
-            modalsorusu={"Günceleme işlemini onaylıyor musunuz?"}
-            className="bg-green-600 hover:bg-green-500 text font-bold py-2 px-6 z-50"
-            Text={"Güncelle"}
-            fonksiyon={updateTask}
-          />
-        </div>
-      </div>
+      <Form
+        task={task}
+        setTask={setTask}
+        header={"Task Düzenle"}
+        modalText={"Task Düzenle"}
+        modalSoru={"Task Düzenlensin mi?"}
+        modalFunction={updateTask}
+      />
     </>
   );
 }

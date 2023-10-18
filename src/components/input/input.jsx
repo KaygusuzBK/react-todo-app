@@ -1,23 +1,46 @@
+import { useEffect } from "react";
+import Modal from "~/components/modal/Modal.jsx";
+
 function Input({
+  id,
   placeholder,
   type,
   onChange,
   value,
-  checked,
   minLength,
   maxLength,
   required,
+  className,
 }) {
+  if (type === "textarea") {
+    return (
+      <>
+        <div>
+          <textarea
+            id={id}
+            className={className}
+            placeholder={placeholder}
+            type={type}
+            onChange={onChange}
+            value={value}
+            required={required}
+            minLength={minLength}
+            maxLength={maxLength}
+          />
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <div>
         <input
-          className="border rounded shadow-md"
+          id={id}
+          className={className}
           placeholder={placeholder}
           type={type}
           onChange={onChange}
           value={value}
-          checked={checked}
           required={required}
           minLength={minLength}
           maxLength={maxLength}
