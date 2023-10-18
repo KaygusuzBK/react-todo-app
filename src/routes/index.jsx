@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Tasks from "~/pages/Home/index.jsx";
 import AddTask from "~/pages/AddTask/AddTask.jsx";
 import EditTask from "~/pages/EditTask/EditTask.jsx";
-import CompletedTasks from "~/pages/completedTask/CompletedTask.jsx";
+import CompletedTasks from "~/pages/CompletedTask/CompletedTask.jsx";
 import Layout from "~/Layout/index.jsx";
 import "~/assets/css/main.css";
 
