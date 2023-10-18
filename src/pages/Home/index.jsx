@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getTasks } from "../../services/task.js";
-import TaskForm from "../../components/task/taskForm/taskForm.jsx";
-import ListBar from "../../components/task/listBar/index.jsx";
+import { getTasks } from "~/services/task.js";
+import TaskForm from "~/components/task/taskForm/taskForm.jsx";
+import ListBar from "~/components/task/listBar/index.jsx";
 
 function Tasks() {
   const [tasks, setTasks] = useState([]);

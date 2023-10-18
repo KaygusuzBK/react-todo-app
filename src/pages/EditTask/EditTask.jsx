@@ -1,7 +1,7 @@
-import { getTaskId, updateTask } from "../../services/task";
+import { getTaskId, updateTask } from "~/services/task";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Form from "../../components/task/form";
+import Form from "~/components/task/form";
 
 function EditTask() {
   let { id } = useParams();
@@ -16,7 +16,6 @@ function EditTask() {
   useEffect(() => {
     getTaskId(id).then(({ data }) => setTask(data));
   }, [getTaskId]);
-
 
   // useEffect(() => {
   //   if (rules[1]) {

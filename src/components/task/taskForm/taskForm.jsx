@@ -1,9 +1,8 @@
-import { deleteTaskId, getTasks } from "../../../services/task.js";
+import { deleteTaskId, getTasks } from "~/services/task.js";
 import { useState, useEffect, useRef } from "react";
-import Button from "../../button/Button.jsx";
-import Checkbox from "../../checkbox/CheckBox..jsx";
+import Checkbox from "~/components/checkbox/CheckBox.jsx";
 import classNames from "classnames";
-import Modal from "../../modal/Modal.jsx";
+import Modal from "~/components/modal/Modal.jsx";
 import { memo } from "react";
 
 function deleteTask() {

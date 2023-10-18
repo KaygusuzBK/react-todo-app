@@ -1,8 +1,8 @@
 import { useState, useEffect, memo } from "react";
 import { useParams } from "react-router-dom";
-import { updateTask, getTaskId } from "../../../services/task.js";
-import Input from "../../input/input.jsx";
-import Modal from "../../modal/Modal.jsx";
+import { updateTask, getTaskId } from "~/services/task.js";
+import Input from "~/components/input/input.jsx";
+import Modal from "~/components/modal/Modal.jsx";
 
 function Form({ header, modalText, modalSoru, modalFunction }) {
   let { id } = useParams();
@@ -114,7 +114,6 @@ function Form({ header, modalText, modalSoru, modalFunction }) {
           text={modalText}
           fonksiyon={handleModalButtonClick}
           id="modalBtn"
-          
         />
       </div>
     </div>

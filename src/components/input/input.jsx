@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Modal from "../modal/Modal";
+import Modal from "~/components/modal/Modal.jsx";
 
 function Input({
   id,
